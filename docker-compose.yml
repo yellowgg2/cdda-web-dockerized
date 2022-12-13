@@ -12,3 +12,7 @@ services:
       options:
         max-size: "50m"
         max-file: "2"
+networks:
+  default:
+    external:
+      name: yellowgg2-subnet
