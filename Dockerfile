@@ -12,6 +12,8 @@ RUN mkdir -p /cdda
 
 WORKDIR /cdda
 
+COPY entry-point.sh .
+
 RUN git clone https://github.com/emscripten-core/emsdk.git
 RUN cd emsdk && ./emsdk install latest && ./emsdk activate latest && source ./emsdk_env.sh
 
@@ -20,8 +22,6 @@ RUN git clone https://github.com/yellowgg2/cdda-web.git
 WORKDIR /cdda/cdda-web
 
 RUN ./build-scripts/prepare-web-data.sh && ./build-scripts/build-emscripten.sh
-
-COPY entry-point.sh .
 
 RUN chmod +x /cdda/entry-point.sh
 
