@@ -1,0 +1,12 @@
+version: "3.1"
+services:
+  hucan-sync:
+    build: .
+    image: asonic/sync-server1.0
+    container_name: asonic-sync-server
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "2"
