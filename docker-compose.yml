@@ -1,10 +1,12 @@
 version: "3.1"
 services:
-  hucan-sync:
+  cdda-web:
     build: .
-    image: asonic/sync-server1.0
-    container_name: asonic-sync-server
+    image: cdda-web
+    container_name: cdda
     restart: unless-stopped
+    ports:
+      - 50505:80
     logging:
       driver: json-file
       options:
